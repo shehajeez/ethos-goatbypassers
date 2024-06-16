@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Ethos (BYPASS.VIP SRC) LINKVERTISE BYPASSER
 // @namespace     goatbypassers.xyz
-// @version       1.0
+// @version       1.1
 // @description   Credits to BYPASS.VIP for the main script, modified it to use the Ethos API and changed a few messages, alerts. Credits to https://github.com/bypass-vip/userscript/blob/main/bypass-vip.user.js
 // @match         *://*.linkvertise.com/*
 // @match         *://linkvertise.com/*/*
@@ -58,6 +58,8 @@
         }, 3000);
     }
 
+    showNotification(`Bypassing with Auto Bypass ${autoBypass ? 'enabled' : 'disabled'}`);
+
     function updateButton(buttonEl, buttonTextEl, data) {
         buttonEl.disabled = false;
         buttonEl.style.transition = 'background-color 0.5s ease';
@@ -99,7 +101,7 @@
             .then(response => response.json())
             .then(data => {
                 updateButton(buttonEl, buttonTextEl, data);
-                showNotification('Unlocked / Bypassed successfully');
+                showNotification('Unlocked successfully');
             })
             .catch(err => {
                 buttonEl.style.backgroundColor = 'red';
