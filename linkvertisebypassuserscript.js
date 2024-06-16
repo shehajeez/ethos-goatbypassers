@@ -7,6 +7,8 @@
 // @match         *://linkvertise.com/*/*
 // @include       *://*.linkvertise.com/*
 // @homepageURL   https://goatbypassers.xyz
+// @downloadURL   https://raw.githubusercontent.com/shehajeez/ethos-goatbypassers/main/linkvertisebypassuserscript.js
+// @updateURL     https://raw.githubusercontent.com/shehajeez/ethos-goatbypassers/main/linkvertisebypassuserscript.js
 // @icon          https://www.google.com/s2/favicons?domain=bypass.vip&sz=64
 // @require       https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @run-at        document-idle
