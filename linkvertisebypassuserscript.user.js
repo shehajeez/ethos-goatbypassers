@@ -101,7 +101,7 @@
             .then(response => response.json())
             .then(data => {
                 updateButton(buttonEl, buttonTextEl, data);
-                showNotification('Unlocked successfully');
+                showNotification('Bypassed successfully');
             })
             .catch(err => {
                 buttonEl.style.backgroundColor = 'red';
