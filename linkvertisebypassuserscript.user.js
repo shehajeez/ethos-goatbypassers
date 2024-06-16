@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Ethos (BYPASS.VIP SRC) LINKVERTISE BYPASSER
 // @namespace     goatbypassers.xyz
-// @version       1.6
+// @version       1.7
 // @description   Credits to BYPASS.VIP for the main script, modified it to use the Ethos API and changed a few messages, alerts. Credits to https://github.com/bypass-vip/userscript/blob/main/bypass-vip.user.js
 // @match         *://*.linkvertise.com/*
 // @match         *://linkvertise.com/*/*
@@ -72,7 +72,12 @@
                     new URL(data.bypassed);
                     window.location.href = data.bypassed;
                 } catch (e) {
-                    document.querySelector('.media').insertAdjacentHTML('beforebegin', `<dialog style="width:100%;height:100%;overflow-y:auto;" open><pre>${data.bypassed}</pre></dialog>`);
+                    document.querySelector('.media').insertAdjacentHTML('beforebegin', `
+  <dialog style="width:100%;height:100%;overflow-y:auto;" open>
+    <pre style="white-space: pre-wrap; overflow-x: auto;">${data.bypassed}</pre>
+  </dialog>
+`);
+
                 }
             };
             updateButtonText(buttonTextEl);
