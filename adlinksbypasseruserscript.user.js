@@ -27,6 +27,7 @@
 // @match        *://*.mobile.codex.lol?token=*
 // @match        *://*.mediafire.com/file/*/*/file
 // @match        *://*.mediafire.com/file_premium/*/*/file
+// @match        *://*.*/s?*
 // @match        *://*.loot-link.com/s*
 // @match        *://*.loot-links.com/s*
 // @match        *://*.lootlinks.co/s*
