@@ -98,7 +98,7 @@
                 buttonEl.click();
             }
             buttonTextEl.addEventListener('DOMSubtreeModified', () => updateButtonText(buttonTextEl));
-            showNotification('Bypassed successfully! Check the icon of this Linkvertise link if you dont get redirected when you click on the button.');
+            showNotification('Bypassed successfully. You will get redirected to PasteBin with your result if the result is a paste.');
         } else {
             buttonEl.style.backgroundColor = 'yellow';
             showNotification(data.message || 'Failed to bypass the link.');
