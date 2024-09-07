@@ -17,8 +17,6 @@
 // @grant         GM_registerMenuCommand
 // ==/UserScript==
 
-// ORIGINAL SCRIPT at https://github.com/bypass-vip/userscript/blob/main/bypass-vip.user.js
-
 (function() {
     'use strict';
 
@@ -72,12 +70,27 @@
                     new URL(data.bypassed);
                     window.location.href = data.bypassed;
                 } catch (e) {
-                    document.querySelector('.media').insertAdjacentHTML('beforebegin', `
-  <dialog style="width:100%;height:100%;overflow-y:auto;" open>
-    <pre style="white-space: pre-wrap; overflow-x: auto;">${data.bypassed}</pre>
-  </dialog>
-`);
-
+                    fetch('https://kairo-api.kys.gay/api/pastebin/create', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            content: data.bypassed
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.success && result.paste) {
+                            window.location.href = result.paste;
+                        } else {
+                            throw new Error('Failed to create Pastebin');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error posting to Pastebin:', error);
+                        showNotification('Failed to post content. Please try again.');
+                    });
                 }
             };
             updateButtonText(buttonTextEl);
