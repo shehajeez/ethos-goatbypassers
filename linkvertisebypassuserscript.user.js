@@ -76,7 +76,7 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            content: data.bypassed
+                            content: data.result
                         })
                     })
                     .then(response => response.json())
@@ -116,7 +116,7 @@
         const buttonTextEl = document.querySelector('[lv-lib-ellipsis="1"]');
         buttonEl.disabled = true;
 
-        fetch(`https://et.goatbypassers.xyz/api/adlinks/bypass?url=${encodeURIComponent(window.location.href)}`)
+        fetch(`https://ethos.kys.gay/api/free/bypass?url=${encodeURIComponent(window.location.href)}`)
             .then(response => response.json())
             .then(data => {
                 updateButton(buttonEl, buttonTextEl, data);
