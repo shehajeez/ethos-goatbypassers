@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Ethos (BYPASS.VIP SRC) LINKVERTISE BYPASSER
 // @namespace     goatbypassers.xyz
-// @version       1.9
+// @version       2.0
 // @description   Credits to BYPASS.VIP for the main script, modified it to use the Ethos API and changed a few messages, alerts. Credits to https://github.com/bypass-vip/userscript/blob/main/bypass-vip.user.js
 // @match         *://*.linkvertise.com/*
 // @match         *://linkvertise.com/*/*
@@ -61,14 +61,14 @@
     function updateButton(buttonEl, buttonTextEl, data) {
         buttonEl.disabled = false;
         buttonEl.style.transition = 'background-color 0.5s ease';
-        if (data.bypassed) {
+        if (data.result) {
             buttonEl.style.backgroundColor = '#4169e1';
             buttonEl.onclick = function(e) {
                 e.stopPropagation();
                 e.preventDefault();
                 try {
-                    new URL(data.bypassed);
-                    window.location.href = data.bypassed;
+                    new URL(data.result);
+                    window.location.href = data.result;
                 } catch (e) {
                     fetch('https://kairo-api.kys.gay/api/pastebin/create', {
                         method: 'POST',
