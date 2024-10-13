@@ -63,15 +63,15 @@
  
     const currenturl = window.location.href;
  
-    fetch('https://et.goatbypassers.xyz/api/adlinks/bypass?url=' + encodeURIComponent(currenturl))
+    fetch('https://ethos.kys.gay/api/free/bypass?url=' + encodeURIComponent(currenturl))
         .then(response => response.json())
         .then(data => {
-            if (data.bypassed && ethosurl(data.bypassed)) {
-                console.log('redirecting to bypassed link / destination:', data.bypassed);
-                window.location.href = data.bypassed;
+            if (data.result && ethosurl(data.result)) {
+                console.log('redirecting to bypassed link / destination:', data.result);
+                window.location.replace(data.result);
             } else {
-                console.error('invalid url detected:', data.bypassed);
-                displayMessage(data.bypassed);
+                console.error('invalid url detected:', data.result);
+                displayMessage(data.result);
             }
         })
         .catch(error => console.error('error:', error));
