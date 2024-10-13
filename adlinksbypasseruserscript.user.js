@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         (GOATBYPASSERS) Ethos Adlinks Bypass
-// @namespace    https://et.goatbypassers.xyz/
-// @version      2.2
+// @namespace    https://ethos.kys.gay
+// @version      3.0
 // @description  Bypasses adlinks using the Ethos API
 // @author       shehajeez (from ethos team)
 // @match        *://*.linkvertise.com/*/dynamic/?*
@@ -57,12 +57,12 @@
 // @exclude      *://*.linkvertise.com/assets/external/thinksuggest
 // @grant        none
 // ==/UserScript==
- 
+
 (function() {
     'use strict';
- 
+
     const currenturl = window.location.href;
- 
+
     fetch('https://ethos.kys.gay/api/free/bypass?url=' + encodeURIComponent(currenturl))
         .then(response => response.json())
         .then(data => {
@@ -75,7 +75,7 @@
             }
         })
         .catch(error => console.error('error:', error));
- 
+
     function ethosurl(url) {
         const pattern = new RegExp('^(https?:\\/\\/)?'+
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
@@ -85,7 +85,7 @@
         '(\\#[-a-z\\d_]*)?$','i');
         return pattern.test(url);
     }
- 
+
     function displayMessage(text) {
         const messageDiv = document.createElement('div');
         messageDiv.style.position = 'fixed';
@@ -102,6 +102,7 @@
         messageDiv.style.maxWidth = '400px';
         messageDiv.style.boxSizing = 'border-box';
         messageDiv.style.animation = 'fadeIn 0.5s';
+
         const style = document.createElement('style');
         style.innerHTML = `
             @keyframes fadeIn {
@@ -110,10 +111,12 @@
             }
         `;
         document.head.appendChild(style);
+
         const messageText = document.createElement('p');
         messageText.style.color = 'red';
-        messageText.innerText = 'Ethos detected that the destination for this link is not a link and is something else, click Copy to copy the result ';
+        messageText.innerText = 'Ethos detected that the destination for this link is not a valid URL. Click "Copy" to copy the result.';
         messageDiv.appendChild(messageText);
+
         const copyButton = document.createElement('button');
         copyButton.innerText = 'Copy';
         copyButton.style.padding = '10px 20px';
@@ -125,7 +128,7 @@
         copyButton.style.color = '#fff';
         copyButton.addEventListener('click', () => {
             navigator.clipboard.writeText(text).then(() => {
-                console.log("copied "+text)
+                console.log("Copied: " + text);
             });
         });
         messageDiv.appendChild(copyButton);
